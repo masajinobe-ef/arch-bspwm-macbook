@@ -17,6 +17,9 @@ dunst --config $HOME/.config/dunst/dunstrc &
 # Start Wallpaper
 feh --bg-max --no-fehbg --randomize $HOME/Wallpapers/* &
 
+# Autorun
+sh $HOME/.local/bin/autorun
+
 ##---------- X Settings ----------##
 
 # Parse colors from "~/.Xresources"

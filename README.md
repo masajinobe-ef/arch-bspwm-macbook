@@ -19,6 +19,7 @@ My **BSPWM** Configuration files for **Macbook Air 2011**
 |  File Manager  |        [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
 |    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
 |  Text Editor   | [VS Code / nano](https://aur.archlinux.org/packages/visual-studio-code-bin) |
+|     Theme      |           [Tokyo Night GTK](https://www.gnome-look.org/p/1681315)           |
 
 ## Installation
 
@@ -39,7 +40,7 @@ Speed up compiling of AUR packages
 ```sh
 sudo nano /etc/makepkg.conf
 
-MAKEFLAGS="-j8"
+MAKEFLAGS="-j4"
 ```
 
 #### Pacman setting-up
@@ -71,8 +72,9 @@ yay -S --needed \
   p7zip zip unrar unzip \
   ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
   mesa xf86-video-intel xf86-input-libinput \
-  bluez bluez-utils \
-  remmina freerdp \
+  bluez bluez-utils blueman \
+  networkmanager nm-connection-editor network-manager-applet \
+  remmina freerdp
   && fc-cache -fv
 ```
 
@@ -90,15 +92,14 @@ sudo chmod +x $HOME/.config/polybar/polybar.sh
 
 # Misc
 cp -r $HOME/arch_bspwm_macbook/misc/* $HOME
-# Themes
-mkdir -p $HOME/.themes && cp -r $HOME/arch_bspwm_macbook/themes/* $HOME/.themes
 ```
 
 #### Daemons
 
 ```sh
-sudo systemctl enable acpid.service
-sudo systemctl enable bluetooth.service
+sudo systemctl enable acpid.service --now
+sudo systemctl enable bluetooth.service --now
+sudo systemctl enable NetworkManager.service --now
 ```
 
 ---
@@ -115,7 +116,7 @@ ru_RU.UTF-8 UTF-8
 sudo locale-gen
 ```
 
-Configure keyboard layout in Xorg and tty
+Configure keyboard layout in Xorg
 
 ```sh
 sudo localectl --no-convert set-x11-keymap us,ru pc105+inet qwerty grp:alt_shift_toggle
@@ -135,7 +136,7 @@ Section "InputClass"
     Option "TappingButtonMap" "lmr"
     Option "ClickMethod" "clickfinger"
     Option "AccelProfile" "flat"
-    Option "TransformationMatrix" "1 0 0 0 1 0 0 0 0.9"
+    Option "TransformationMatrix" "1 0 0 0 1 0 0 0 0.8"
 EndSection
 ```
 
@@ -164,13 +165,26 @@ options hid_apple fnmode=2 iso_layout=1
 sudo mkinitcpio -P
 ```
 
+Config vconsole
+
+```sh
+sudo nano /etc/vconsole.conf
+
+XKBLAYOUT=us,ru
+XKBMODEL=pc105+inet
+XKBOPTIONS=grp:alt_shift_toggle
+XKBVARIANT=qwerty
+KEYMAP=us
+FONT=ter-k22n
+USECOLOR=yes
+```
+
 Config GRUB
 
 ```sh
 sudo nano /etc/default/grub
 
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 mitigations=off splash"
-GRUB_DISABLE_SUBMENU=y
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash"
 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -210,25 +224,24 @@ ilancosman/tide@v6
 
 |                     Shortcuts                     |                          sxhkd                           |
 | :-----------------------------------------------: | :------------------------------------------------------: |
-|                  super + Return                   |                         Terminal                         |
-|                     super + r                     |                     Application menu                     |
-|                     super + b                     |                        Lockscreen                        |
-|                 super + w/e/t/d/c                 |        Chromium, Thunar, Telegram, Discord, Code         |
+|                  Super + Return                   |                         Terminal                         |
+|                     Super + R                     |                     Application menu                     |
+|                 Super + W/E/T/D/C                 |        Chromium, Thunar, Telegram, Discord, Code         |
 |                       Print                       |                    Take a screenshot                     |
-|                 super + shift + s                 |              Take a screenshot to clipboard              |
-|                   ctrl + Print                    |             Take screenshot of active window             |
-|                 ctrl + shift + s                  |                 Take screenshot of area                  |
-|                  super + Escape                   |                    Reload Keybindings                    |
-|                  super + alt + q                  |                        Quit bspwm                        |
-|                  super + alt + r                  |                      Restart bspwm                       |
-|                     super + q                     |                        Close app                         |
-|                 super + shift + q                 |                         Kill app                         |
-|                     super + s                     |                 Tiled or Monocle switch                  |
-|                super + ctrl + 1-9                 |                   Preselect the ratio                    |
-|                   super + ' ; /                   |           Split horizontal, vertical or cancel           |
-| super + (shift) + Left/Down/Up/Right (or h/j/k/l) | Select and Send the window to another edge of the screen |
+|                 Super + Shift + S                 |              Take a screenshot to clipboard              |
+|                   Ctrl + Print                    |             Take screenshot of active window             |
+|                 Ctrl + Shift + S                  |                 Take screenshot of area                  |
+|                  Super + Escape                   |                    Reload Keybindings                    |
+|                  Super + Alt + Q                  |                        Quit bspwm                        |
+|                  Super + Alt + R                  |                      Restart bspwm                       |
+|                     Super + Q                     |                        Close app                         |
+|                 Super + Shift + Q                 |                         Kill app                         |
+|                     Super + S                     |                 Tiled or Monocle switch                  |
+|                Super + Ctrl + 1-9                 |                   Preselect the ratio                    |
+|                   Super + ' ; /                   |           Split horizontal, vertical or cancel           |
+| Super + (Shift) + Left/Down/Up/Right (or H/J/K/L) | Select and Send the window to another edge of the screen |
 |                    super + { }                    |                     Switch workspace                     |
-|                alt + (shift) + Tab                |  Change focus to next window, including floating window  |
-|               super + (shift) + 1-5               |         Send focused window to another workspace         |
-|       super + control + Left/Right/Up/Down        |                    Expanding windows                     |
-|         super + alt + Left/Right/Up/Down          |                    Shrinking windows                     |
+|                Alt + (Shift) + Tab                |  Change focus to next window, including floating window  |
+|               Super + (Shift) + 1-5               |         Send focused window to another workspace         |
+|       Super + Control + Left/Right/Up/Down        |                    Expanding windows                     |
+|         Super + Alt + Left/Right/Up/Down          |                    Shrinking windows                     |

@@ -1,0 +1,1 @@
+sudo reflector --verbose --sort rate -p https --country Russia,Germany,France,Luxembourg,Netherlands,Finland --save /etc/pacman.d/mirrorlist
