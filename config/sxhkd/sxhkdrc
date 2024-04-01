@@ -1,0 +1,120 @@
+##---------- Keybindings for bspwm ----------##
+
+# Terminal (kitty)
+super + Return
+	kitty
+
+# Open application menu
+super + r
+	dmenu_run -fn 'JetbrainsMono Nerd Font-14'
+
+##---------- Applications ----------##
+
+# Launch Apps
+super + {w,e,t,d,c}
+	{chromium,thunar,telegram-desktop,discord,code}
+
+##---------- System Keys ----------##
+
+# Take a screenshot
+Print
+	sh $HOME/.local/bin/takeshot --now
+
+# Take a screenshot to clipboard
+super + shift + s
+	sh $HOME/.local/bin/takeshot --clip
+
+# Take screenshot of active window
+ctrl + Print
+	sh $HOME/.local/bin/takeshot --win
+
+# Take screenshot of area
+ctrl + shift + s
+	sh $HOME/.local/bin/takeshot --area
+
+# Manage brightness-kb
+XF86KbdBrightness{Up,Down}
+    sh $HOME/.local/bin/brightness-kb {up,down}
+
+# Manage brightness
+XF86MonBrightness{Up,Down}
+    sh $HOME/.local/bin/brightness {up,down}
+
+# Manage volume
+XF86AudioRaiseVolume
+    pactl set-sink-volume 0 +5%
+XF86AudioLowerVolume
+    pactl set-sink-volume 0 -5%
+XF86AudioMute
+    pactl set-sink-mute 0 toggle
+
+##---------- Bspwm ----------##
+
+# Reload Keybindings
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Quit/Restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# Close & Kill app
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# Tiled or Monocle switch
+super + s
+	bspc desktop -l next
+
+# Tiled or Fullscreen switch
+#super + {g,m}
+#    bspc node -t {tiled,fullscreen}
+
+# Toggle floating mode for the focused window
+#super + f
+#    bspc node -t floating
+
+# Resize the focused floating window with the arrow keys
+#super + shift + {Left,Down,Up,Right}
+#	bspc node -v {-15 0,0 15,0 -15,15 0}
+
+# Move the focused floating window with h,j,k,l
+#super + shift + {h,j,k,l}
+#	bspc node -v {-15 0,0 15,0 -15,15 0}
+
+# Preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# Split horizontal, vertical or cancel
+super + {apostrophe,semicolon,slash}
+	bspc node -p {east,south,cancel}
+
+# Send the window to another edge of the screen
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# Send the window to another edge of the screen
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# Switch workspace
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# Change focus to next window, including floating window
+alt + {_,shift + }Tab
+	bspc node -f {next.local,prev.local}
+
+# Send focused window to another workspace
+super + {_,shift + }{1-5}
+	bspc {desktop -f,node -d} '^{1-5}'
+
+# Expanding windows
+super + control + {Left,Right,Up,Down}
+	bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+	
+# Shrinking windows
+super + alt + {Left,Right,Up,Down}
+	bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+
