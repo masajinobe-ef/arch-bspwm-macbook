@@ -28,9 +28,10 @@ My **BSPWM** Configuration files for **Macbook Air 2011**
 The initial installation of Yay
 
 ```sh
-pacman -Syu --needed nano git base-devel
+sudo pacman -Syu --needed nano git base-devel
 git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
+cd && rm -rf yay
 ```
 
 #### MAKEPKG
@@ -62,7 +63,7 @@ ParallelDownloads = 5
 ```sh
 yay -S --needed \
   xorg xorg-xinit xorg-xrdb \
-  bspwm sxhkd polybar dmenu2 feh kitty fish dunst \
+  bspwm sxhkd polybar dmenu feh kitty fish dunst \
   acpid brightnessctl \
   thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
   visual-studio-code-bin nano \
@@ -74,13 +75,16 @@ yay -S --needed \
   mesa xf86-video-intel xf86-input-libinput \
   bluez bluez-utils blueman \
   networkmanager nm-connection-editor network-manager-applet \
-  remmina freerdp
+  remmina freerdp \
+  efibootmgr
   && fc-cache -fv
 ```
 
 #### Copy configuration files
 
 ```sh
+git clone https://github.com/masajinobe-ef/arch-bspwm-macbook
+
 # /.config
 mkdir -p $HOME/.config && cp -r $HOME/arch_bspwm_macbook/config/* $HOME/.config
 # /.local/bin
@@ -91,7 +95,7 @@ sudo chmod +x $HOME/.config/bspwm/bspwmrc
 sudo chmod +x $HOME/.config/polybar/polybar.sh
 
 # Misc
-cp -r $HOME/arch_bspwm_macbook/misc/* $HOME
+cp -r $HOME/arch-bspwm-macbook/misc/* $HOME
 ```
 
 #### Daemons
@@ -175,7 +179,7 @@ XKBMODEL=pc105+inet
 XKBOPTIONS=grp:alt_shift_toggle
 XKBVARIANT=qwerty
 KEYMAP=us
-FONT=ter-k22n
+FONT=cyr-sun16
 USECOLOR=yes
 ```
 
