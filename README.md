@@ -69,7 +69,7 @@ thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
 visual-studio-code-bin nano \
 mpv ffmpeg ffmpegthumbnailer \
 telegram-desktop qbittorrent discord chromium \
-fastfetch btop lsd fzf fd ripgrep bat maim xdotool xclip reflector \
+fastfetch btop lsd fzf fd lazygit ripgrep bat maim xdotool xclip reflector \
 p7zip zip unrar unzip \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
 mesa xf86-video-intel xf86-input-libinput \
