@@ -261,7 +261,7 @@ ilancosman/tide@v6
 |                Super + Ctrl + 1-9                 |                   Preselect the ratio                    |
 |                   Super + ' ; /                   |           Split horizontal, vertical or cancel           |
 | Super + (Shift) + Left/Down/Up/Right (or H/J/K/L) | Select and Send the window to another edge of the screen |
-|                    super + { }                    |                     Switch workspace                     |
+|                    Super + { }                    |                     Switch workspace                     |
 |                Alt + (Shift) + Tab                |  Change focus to next window, including floating window  |
 |               Super + (Shift) + 1-5               |         Send focused window to another workspace         |
 |       Super + Control + Left/Right/Up/Down        |                    Expanding windows                     |
