@@ -4,7 +4,7 @@
   <img width="100%" src="pic.png" alt="readme"/>
 </p>
 
-My **BSPWM** Configuration files for **Macbook Air Late 2011 A1370**
+**BSPWM** Configuration files for **Macbook Air Late 2011 A1370**
 
 ## Infomation
 
