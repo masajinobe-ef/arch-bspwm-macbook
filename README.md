@@ -28,7 +28,7 @@
 The initial installation of Yay
 
 ```sh
-sudo pacman -Syu --needed nano git base-devel
+sudo pacman -Syu --needed nano git base-devel go
 git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
 cd && rm -rf yay
