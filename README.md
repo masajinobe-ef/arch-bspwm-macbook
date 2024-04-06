@@ -1,10 +1,10 @@
 # BSPWM ARCH
 
 <p align="center">
-  <img width="100%" src="readme.png" alt="readme"/>
+  <img width="100%" src="pic.png" alt="readme"/>
 </p>
 
-My **BSPWM** Configuration files for **Macbook Air 2011**
+My **BSPWM** Configuration files for **Macbook Air Late 2011 A1370**
 
 ## Infomation
 
@@ -74,10 +74,9 @@ p7zip zip unrar unzip \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
 mesa xf86-video-intel xf86-input-libinput \
 bluez bluez-utils blueman \
-networkmanager nm-connection-editor network-manager-applet \
+networkmanager nm-connection-editor network-manager-applet broadcom-wl \
 remmina freerdp \
 efibootmgr
-&& fc-cache -fv
 ```
 
 #### Copy configuration files
@@ -96,6 +95,24 @@ sudo chmod +x $HOME/.config/polybar/polybar.sh
 
 # Misc
 cp -r $HOME/arch-bspwm-macbook/misc/* $HOME
+```
+
+#### Internet
+
+```sh
+sudo nano /etc/modprobe.d/blacklist.conf
+
+blacklist ssb
+blacklist mmc_core
+blacklist b43
+blacklist brcmsmac
+blacklist brcmutil
+blacklist cordic
+blacklist mac80211
+blacklist bcma
+
+sudo mkinitcpio -P
+sudo modprobe wl
 ```
 
 #### Daemons
