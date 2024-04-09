@@ -97,7 +97,7 @@ sudo chmod +x $HOME/.config/polybar/polybar.sh
 cp -r $HOME/arch-bspwm-macbook/misc/* $HOME
 ```
 
-#### Internet
+#### Internet (only for macbook)
 
 ```sh
 sudo nano /etc/modprobe.d/blacklist.conf
