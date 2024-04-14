@@ -19,7 +19,7 @@
 |  File Manager  |        [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
 |    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
 |  Text Editor   | [VS Code / nano](https://aur.archlinux.org/packages/visual-studio-code-bin) |
-|     Theme      |           [Tokyo Night GTK](https://www.gnome-look.org/p/1681315)           |
+|     Theme      |           [Tokyo Night GTK](https://www.gnome-look.org/p/1275087)           |
 
 ## Installation
 
@@ -28,7 +28,7 @@
 The initial installation of Yay
 
 ```sh
-sudo pacman -Syu --needed nano git base-devel go
+sudo pacman -Syu --needed nano git base-devel
 git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
 cd && rm -rf yay
@@ -67,9 +67,9 @@ bspwm sxhkd polybar dmenu feh kitty fish dunst \
 acpid brightnessctl \
 thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
 visual-studio-code-bin nano \
-mpv ffmpeg ffmpegthumbnailer \
-telegram-desktop qbittorrent discord chromium \
-fastfetch btop lsd fzf fd lazygit ripgrep bat maim xdotool xclip reflector \
+mpv ffmpeg \
+telegram-desktop qbittorrent chromium \
+fastfetch btop lsd fzf fd lazygit ripgrep bat maim xdotool xclip reflector go jq gdm \
 p7zip zip unrar unzip \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
 mesa xf86-video-intel xf86-input-libinput \
@@ -94,7 +94,7 @@ sudo chmod +x $HOME/.config/bspwm/bspwmrc
 sudo chmod +x $HOME/.config/polybar/polybar.sh
 
 # Misc
-cp -r $HOME/arch-bspwm-macbook/misc/* $HOME
+cp -r $HOME/arch-bspwm-macbook/misc/. $HOME
 ```
 
 #### Internet (only for macbook)
@@ -121,6 +121,7 @@ sudo modprobe wl
 sudo systemctl enable acpid.service --now
 sudo systemctl enable bluetooth.service --now
 sudo systemctl enable NetworkManager.service --now
+sudo systemctl enable gdm.service --now
 ```
 
 ---
@@ -176,7 +177,7 @@ Section "InputClass"
 EndSection
 ```
 
-Config macbook keyboard
+Config keyboard (only for macbook)
 
 ```sh
 sudo nano /etc/modprobe.d/hid_apple.conf
@@ -213,13 +214,6 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ---
 
 #### Other
-
-Vencord (Discord)
-
-```sh
-# bash
-sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
-```
 
 Fisher (Fish)
 
