@@ -74,7 +74,7 @@ p7zip zip unrar unzip \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
 mesa xf86-video-intel xf86-input-libinput \
 bluez bluez-utils blueman \
-networkmanager nm-connection-editor network-manager-applet broadcom-wl \
+networkmanager nm-connection-editor network-manager-applet broadcom-wl auto-cpufreq \
 remmina freerdp \
 efibootmgr
 ```
@@ -122,6 +122,7 @@ sudo systemctl enable acpid.service --now
 sudo systemctl enable bluetooth.service --now
 sudo systemctl enable NetworkManager.service --now
 sudo systemctl enable gdm.service --now
+sudo systemctl enable auto-cpufreq.service --now
 ```
 
 ---
