@@ -207,7 +207,7 @@ Config GRUB
 ```sh
 sudo nano /etc/default/grub
 
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash intel_pstate=disable"
 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
