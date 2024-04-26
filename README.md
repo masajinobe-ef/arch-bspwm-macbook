@@ -8,18 +8,18 @@
 
 ## Infomation
 
-|       OS       |                    [Arch Linux](https://archlinux.org/)                     |
-| :------------: | :-------------------------------------------------------------------------: |
-|   AUR Helper   |                     [yay](https://github.com/Jguer/yay)                     |
-|     Shell      |                       [Fish](https://fishshell.com/)                        |
-| Window Manager |                [BSPWM](https://github.com/baskerville/bspwm)                |
-|      Bar       |                [Polybar](https://github.com/polybar/polybar)                |
-|      Menu      |                 [Rofi](https://github.com/davatorium/rofi)                  |
-|    Terminal    |                [Kitty](https://github.com/kovidgoyal/kitty)                 |
-|  File Manager  |        [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
-|    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
-|  Text Editor   | [VS Code / nano](https://aur.archlinux.org/packages/visual-studio-code-bin) |
-|     Theme      |           [Mojave GTK](https://www.gnome-look.org/p/1275087)           |
+|       OS       |                     [Arch Linux](https://archlinux.org/)                     |
+| :------------: | :--------------------------------------------------------------------------: |
+|   AUR Helper   |                     [yay](https://github.com/Jguer/yay)                      |
+|     Shell      |                        [Fish](https://fishshell.com/)                        |
+| Window Manager |                [BSPWM](https://github.com/baskerville/bspwm)                 |
+|      Bar       |                [Polybar](https://github.com/polybar/polybar)                 |
+|      Menu      |                  [Rofi](https://github.com/davatorium/rofi)                  |
+|    Terminal    |                 [Kitty](https://github.com/kovidgoyal/kitty)                 |
+|  File Manager  |         [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
+|    Browser     |       [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
+|  Text Editor   | [VS Code / micro](https://aur.archlinux.org/packages/visual-studio-code-bin) |
+|     Theme      |              [Mojave GTK](https://www.gnome-look.org/p/1275087)              |
 
 ## Installation
 
@@ -28,7 +28,7 @@
 The initial installation of Yay
 
 ```sh
-sudo pacman -Syu --needed nano git base-devel
+sudo pacman -Syu --needed micro git base-devel
 git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
 cd && rm -rf yay
@@ -39,7 +39,7 @@ cd && rm -rf yay
 Speed up compiling of AUR packages
 
 ```sh
-sudo nano /etc/makepkg.conf
+sudo micro /etc/makepkg.conf
 
 MAKEFLAGS="-j4"
 ```
@@ -49,7 +49,7 @@ MAKEFLAGS="-j4"
 Parallel downloading of packages
 
 ```sh
-sudo nano /etc/pacman.conf
+sudo micro /etc/pacman.conf
 
 ParallelDownloads = 4
 ```
@@ -62,19 +62,19 @@ ParallelDownloads = 4
 
 ```sh
 yay -S --needed \
-xorg xorg-xinit xorg-xrdb \
+xorg xorg-xinit \
 bspwm sxhkd polybar rofi rofi-power-menu feh kitty fish dunst \
-acpid brightnessctl \
 thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
-visual-studio-code-bin nano \
+visual-studio-code-bin micro \
 mpv ffmpeg \
 telegram-desktop qbittorrent chromium \
-fastfetch btop lsd fzf fd lazygit ripgrep bat maim xdotool xclip xsel reflector go jq gdm \
-p7zip zip unrar unzip \
+fastfetch btop lsd fzf fd lazygit ripgrep bat maim xdotool xclip xsel reflector go jq gdm gdm-settings \
+p7zip zip unrar unzip xarchiver \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
 mesa xf86-video-intel xf86-input-libinput \
 bluez bluez-utils blueman \
-networkmanager nm-connection-editor network-manager-applet broadcom-wl auto-cpufreq \
+networkmanager nm-connection-editor network-manager-applet broadcom-wl \
+acpid brightnessctl auto-cpufreq \
 remmina freerdp \
 efibootmgr
 ```
@@ -84,23 +84,23 @@ efibootmgr
 ```sh
 git clone https://github.com/masajinobe-ef/arch-bspwm-macbook
 
-# /.config
-mkdir -p $HOME/.config && cp -r $HOME/arch_bspwm_macbook/config/* $HOME/.config
-# /.local/bin
-mkdir -p $HOME/.local/bin && cp -r $HOME/arch_bspwm_macbook/bin/* $HOME/.local/bin
+# ~/.config
+mkdir -p ~/.config && cp -r ~/arch_bspwm_macbook/config/* ~/.config
+# ~/.local/bin
+mkdir -p ~/.local/bin && cp -r ~/arch_bspwm_macbook/bin/* ~/.local/bin
 
 # Make executable
-sudo chmod +x $HOME/.config/bspwm/bspwmrc
-sudo chmod +x $HOME/.config/polybar/polybar.sh
+sudo chmod +x ~/.config/bspwm/bspwmrc
+sudo chmod +x ~/.config/polybar/polybar.sh
 
 # Misc
-cp -r $HOME/arch-bspwm-macbook/misc/. $HOME
+cp -r ~/arch-bspwm-macbook/misc/. ~
 ```
 
 #### Internet (only for macbook)
 
 ```sh
-sudo nano /etc/modprobe.d/blacklist.conf
+sudo micro /etc/modprobe.d/blacklist.conf
 
 blacklist ssb
 blacklist mmc_core
@@ -132,7 +132,7 @@ sudo systemctl enable auto-cpufreq  --now
 Adding language
 
 ```sh
-sudo nano /etc/locale.gen
+sudo micro /etc/locale.gen
 
 ru_RU.UTF-8 UTF-8
 
@@ -148,7 +148,7 @@ sudo localectl --no-convert set-x11-keymap us,ru pc105+inet qwerty grp:alt_shift
 Config touchpad
 
 ```sh
-sudo nano /etc/X11/xorg.conf.d/30-touchpad.conf
+sudo micro /etc/X11/xorg.conf.d/30-touchpad.conf
 
 Section "InputClass"
     Identifier "touchpad"
@@ -166,7 +166,7 @@ EndSection
 Config mouse
 
 ```sh
-sudo nano /etc/X11/xorg.conf.d/30-pointer.conf
+sudo micro /etc/X11/xorg.conf.d/30-pointer.conf
 
 Section "InputClass"
     Identifier "pointer"
@@ -181,7 +181,7 @@ EndSection
 Config keyboard (only for macbook)
 
 ```sh
-sudo nano /etc/modprobe.d/hid_apple.conf
+sudo micro /etc/modprobe.d/hid_apple.conf
 
 options hid_apple fnmode=2 iso_layout=1
 
@@ -191,7 +191,7 @@ sudo mkinitcpio -P
 Config vconsole
 
 ```sh
-sudo nano /etc/vconsole.conf
+sudo micro /etc/vconsole.conf
 
 XKBLAYOUT=us,ru
 XKBMODEL=pc105+inet
@@ -205,7 +205,7 @@ USECOLOR=yes
 Config GRUB
 
 ```sh
-sudo nano /etc/default/grub
+sudo micro /etc/default/grub
 
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash intel_pstate=disable"
 
@@ -217,7 +217,7 @@ Config auto-cpufreq
 ```sh
 sensors-detect
 
-sudo nano /etc/auto-cpufreq.conf
+sudo micro /etc/auto-cpufreq.conf
 
 [charger]
 governor = performance
