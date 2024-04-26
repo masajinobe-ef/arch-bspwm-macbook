@@ -118,19 +118,11 @@ sudo modprobe wl
 #### Daemons
 
 ```sh
-<<<<<<< HEAD
 sudo systemctl enable acpid --now
 sudo systemctl enable bluetooth --now
 sudo systemctl enable NetworkManager --now
 sudo systemctl enable gdm --now
 sudo systemctl enable auto-cpufreq  --now
-=======
-sudo systemctl enable acpid.service --now
-sudo systemctl enable bluetooth.service --now
-sudo systemctl enable NetworkManager.service --now
-sudo systemctl enable gdm.service --now
-sudo systemctl enable auto-cpufreq.service --now
->>>>>>> b4cc044141f0b1353c55585f7716621c0cfab99d
 ```
 
 ---
