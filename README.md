@@ -14,12 +14,12 @@
 |     Shell      |                       [Fish](https://fishshell.com/)                        |
 | Window Manager |                [BSPWM](https://github.com/baskerville/bspwm)                |
 |      Bar       |                [Polybar](https://github.com/polybar/polybar)                |
-|      Menu      |                [dmenu2](https://github.com/muff1nman/dmenu2)                |
+|      Menu      |                 [Rofi](https://github.com/davatorium/rofi)                  |
 |    Terminal    |                [Kitty](https://github.com/kovidgoyal/kitty)                 |
 |  File Manager  |        [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
 |    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
 |  Text Editor   | [VS Code / nano](https://aur.archlinux.org/packages/visual-studio-code-bin) |
-|     Theme      |           [Tokyo Night GTK](https://www.gnome-look.org/p/1275087)           |
+|     Theme      |           [Mojave GTK](https://www.gnome-look.org/p/1275087)           |
 
 ## Installation
 
@@ -51,7 +51,7 @@ Parallel downloading of packages
 ```sh
 sudo nano /etc/pacman.conf
 
-ParallelDownloads = 5
+ParallelDownloads = 4
 ```
 
 ---
@@ -63,7 +63,7 @@ ParallelDownloads = 5
 ```sh
 yay -S --needed \
 xorg xorg-xinit xorg-xrdb \
-bspwm sxhkd polybar dmenu feh kitty fish dunst \
+bspwm sxhkd polybar rofi rofi-power-menu feh kitty fish dunst \
 acpid brightnessctl \
 thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
 visual-studio-code-bin nano \
@@ -118,10 +118,11 @@ sudo modprobe wl
 #### Daemons
 
 ```sh
-sudo systemctl enable acpid.service --now
-sudo systemctl enable bluetooth.service --now
-sudo systemctl enable NetworkManager.service --now
-sudo systemctl enable gdm.service --now
+sudo systemctl enable acpid --now
+sudo systemctl enable bluetooth --now
+sudo systemctl enable NetworkManager --now
+sudo systemctl enable gdm --now
+sudo systemctl enable auto-cpufreq  --now
 ```
 
 ---
@@ -158,7 +159,7 @@ Section "InputClass"
     Option "TappingButtonMap" "lmr"
     Option "ClickMethod" "clickfinger"
     Option "AccelProfile" "flat"
-    Option "TransformationMatrix" "1 0 0 0 1 0 0 0 0.8"
+    Option "TransformationMatrix" "1 0 0 0 1 0 0 0 1"
 EndSection
 ```
 
@@ -206,9 +207,43 @@ Config GRUB
 ```sh
 sudo nano /etc/default/grub
 
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash intel_pstate=disable"
 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+Config auto-cpufreq
+
+```sh
+sensors-detect
+
+sudo nano /etc/auto-cpufreq.conf
+
+[charger]
+governor = performance
+energy_performance_preference = performance
+
+scaling_min_freq = 800000
+scaling_max_freq = 1801000
+
+# turbo boost setting. possible values: always, auto, never
+turbo = always
+
+[battery]
+governor = powersave
+energy_performance_preference = power
+
+scaling_min_freq = 800000
+scaling_max_freq = 1800000
+
+# turbo boost setting (always, auto, or never)
+turbo = never
+
+# battery charging threshold
+# reference: https://github.com/AdnanHodzic/auto-cpufreq/#battery->
+#enable_thresholds = true
+#start_threshold = 20
+#stop_threshold = 80
 ```
 
 ---
@@ -234,29 +269,3 @@ ramlev/mkcd
 meaningful-ooo/sponge
 ilancosman/tide@v6
 ```
-
-## Shortcuts
-
-|                     Shortcuts                     |                          sxhkd                           |
-| :-----------------------------------------------: | :------------------------------------------------------: |
-|                  Super + Return                   |                         Terminal                         |
-|                     Super + R                     |                     Application menu                     |
-|                 Super + W/E/T/D/C                 |        Chromium, Thunar, Telegram, Discord, Code         |
-|                       Print                       |                    Take a screenshot                     |
-|                 Super + Shift + S                 |              Take a screenshot to clipboard              |
-|                   Ctrl + Print                    |             Take screenshot of active window             |
-|                 Ctrl + Shift + S                  |                 Take screenshot of area                  |
-|                  Super + Escape                   |                    Reload Keybindings                    |
-|                  Super + Alt + Q                  |                        Quit bspwm                        |
-|                  Super + Alt + R                  |                      Restart bspwm                       |
-|                     Super + Q                     |                        Close app                         |
-|                 Super + Shift + Q                 |                         Kill app                         |
-|                     Super + S                     |                 Tiled or Monocle switch                  |
-|                Super + Ctrl + 1-9                 |                   Preselect the ratio                    |
-|                   Super + ' ; /                   |           Split horizontal, vertical or cancel           |
-| Super + (Shift) + Left/Down/Up/Right (or H/J/K/L) | Select and Send the window to another edge of the screen |
-|                    Super + { }                    |                     Switch workspace                     |
-|                Alt + (Shift) + Tab                |  Change focus to next window, including floating window  |
-|               Super + (Shift) + 1-5               |         Send focused window to another workspace         |
-|       Super + Control + Left/Right/Up/Down        |                    Expanding windows                     |
-|         Super + Alt + Left/Right/Up/Down          |                    Shrinking windows                     |

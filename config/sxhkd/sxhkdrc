@@ -4,21 +4,25 @@
 super + Return
 	kitty
 
-# Open application menus
+# Open application menu
 super + r
-	dmenu_run -fn 'JetbrainsMono Nerd Font-12'
+	rofi -show combi -combi-modes "window,drun,ssh"
+
+# Power menu
+super + p
+	rofi -show power-menu -modi power-menu:rofi-power-menu
 
 # Launch Apps
-super + {w,e,t}
-	{chromium,thunar,telegram-desktop}
+super + {w,e,t,c}
+	{chromium,thunar,telegram-desktop,code}
 
 ##---------- System Keys ----------##
 
-# Take a screenshot to clipboard
+# Screenshot to clipboard
 ctrl + shift + s
 	sh $HOME/.local/bin/takeshot --clip
 
-# Take screenshot of area
+# Screenshot of area
 super + shift + s
 	sh $HOME/.local/bin/takeshot --area
 
@@ -33,12 +37,18 @@ XF86KbdBrightness{Up,Down}
 # Manage volume
 XF86AudioRaiseVolume
     pactl set-sink-volume 0 +5%
+
 XF86AudioLowerVolume
     pactl set-sink-volume 0 -5%
+
 XF86AudioMute
     pactl set-sink-mute 0 toggle
 
 ##---------- Bspwm ----------##
+
+# Reload sxhkd
+super + Escape
+	pkill -x sxhkd; sxhkd &
 
 # Quit/Restart bspwm
 super + alt + {q,r}
@@ -76,26 +86,16 @@ super + bracket{left,right}
 alt + Tab
 	bspc node -f next.local
 
+# Change focus to prev window, including floating window
+Tab + shift
+	bspc node -f prev.local
+
 # Send focused window to another workspace
-super + {_,shift + }{1-5}
-	bspc {desktop -f,node -d} '^{1-5}'
+super + {_,shift + }{1-6}
+	bspc {desktop -f,node -d} '^{1-6}'
 
-# Toggle floating mode for the focused window
-#super + f
-#    bspc node -t floating
-
-# Resize the focused floating window with the arrow keys
-#super + shift + {Left,Down,Up,Right}
-#	bspc node -v {-15 0,0 15,0 -15,15 0}
-
-# Move the focused floating window with h,j,k,l
-#super + shift + {h,j,k,l}
-#	bspc node -v {-15 0,0 15,0 -15,15 0}
-
-# Expanding windows
-#super + control + {Left,Right,Up,Down}
-#	bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
-	
-# Shrinking windows
-#super + alt + {Left,Right,Up,Down}
-#	bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0 || bspc node -z right -20 0, \
+				  bottom 0 20 || bspc node -z top 0 20, \ 
+				  top 0 -20 || bspc node -z bottom 0 -20, \
+				  right 20 0 || bspc node -z left 20 0}

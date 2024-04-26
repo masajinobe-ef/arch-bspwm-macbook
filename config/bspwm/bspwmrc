@@ -8,9 +8,6 @@ pgrep -x sxhkd >/dev/null || sxhkd &
 # Run Polybar
 sh $HOME/.config/polybar/polybar.sh
 
-# Run Picom
-picom --experimental-backend &
-
 # Run Dunst
 dunst --config $HOME/.config/dunst/dunstrc &
 
@@ -25,50 +22,20 @@ sh $HOME/.local/bin/autorun
 
 ##---------- X Settings ----------##
 
-# Parse colors from "~/.Xresources"
-xrdb -override $HOME/.Xresources &
-
-xrdb_query()
-{
-    [ -n "$XRDB_QUERY" ] || XRDB_QUERY="$(xrdb -query)"
-
-    echo "$XRDB_QUERY" | while IFS=';' read -r STRING; do
-        [ "${1}" = "${STRING%%\	*}" ] || continue
-        echo "${STRING##*\	}"
-        break
-    done
-}
-
-getcolors()
-{
-    #FOREGROUND="$(xrdb_query '*.foreground:')"
-    BACKGROUND="$(xrdb_query '*.background:')"
-    #BLACK="$(xrdb_query '*.color0:')"
-    #RED="$(xrdb_query '*.color1:')"
-    #GREEN="$(xrdb_query '*.color2:')"
-    #YELLOW="$(xrdb_query '*.color3:')"
-    #BLUE="$(xrdb_query '*.color4:')"
-    #MAGENTA="$(xrdb_query '*.color5:')"
-    #CYAN="$(xrdb_query '*.color6:')"
-    #WHITE="$(xrdb_query '*.color7:')"
-}
-
-getcolors
-
 # Fix Cursor
 xsetroot -cursor_name left_ptr &
 
 # Set Resolution
-xrandr --output eDP1 --mode 1366x768 --scale 1.0x1.0 --dpi 100 &
+xrandr --output eDP1 --mode 1366x768 --scale 1.0x1.0 --dpi 100
 
 # Set Keyboard Repeat Delay and Rate
-xset r rate 200 50 &
+xset r rate 200 50
 
 ##---------- Window Rules ----------##
 
-bspc monitor -d 1 2 3 4 5
+bspc monitor -d 1 2 3 4 5 6
 
-#bspc rule -a telegram-desktop desktop=^5 follow=on focus=on
+# bspc rule -a telegram-desktop desktop=^5 follow=on focus=on
 
 ##---------- General Configuration ----------##
 
@@ -86,8 +53,3 @@ bspc config pointer_modifier true
 bspc config paddingless_monocle true
 bspc config borderless_monocle true
 bspc config gapless_monocle true
-
-#bspc config left_padding 50
-#bspc config right_padding 50
-#bspc config top_padding 50
-#bspc config bottom_padding 50
