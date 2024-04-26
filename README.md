@@ -74,7 +74,7 @@ p7zip zip unrar unzip \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
 mesa xf86-video-intel xf86-input-libinput \
 bluez bluez-utils blueman \
-networkmanager nm-connection-editor network-manager-applet broadcom-wl \
+networkmanager nm-connection-editor network-manager-applet broadcom-wl auto-cpufreq \
 remmina freerdp \
 efibootmgr
 ```
@@ -118,11 +118,19 @@ sudo modprobe wl
 #### Daemons
 
 ```sh
+<<<<<<< HEAD
 sudo systemctl enable acpid --now
 sudo systemctl enable bluetooth --now
 sudo systemctl enable NetworkManager --now
 sudo systemctl enable gdm --now
 sudo systemctl enable auto-cpufreq  --now
+=======
+sudo systemctl enable acpid.service --now
+sudo systemctl enable bluetooth.service --now
+sudo systemctl enable NetworkManager.service --now
+sudo systemctl enable gdm.service --now
+sudo systemctl enable auto-cpufreq.service --now
+>>>>>>> b4cc044141f0b1353c55585f7716621c0cfab99d
 ```
 
 ---
@@ -207,7 +215,7 @@ Config GRUB
 ```sh
 sudo nano /etc/default/grub
 
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash intel_pstate=disable"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash"
 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
