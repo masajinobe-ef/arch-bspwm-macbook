@@ -8,18 +8,19 @@
 
 ## Infomation
 
-|       OS       |                     [Arch Linux](https://archlinux.org/)                     |
-| :------------: | :--------------------------------------------------------------------------: |
-|   AUR Helper   |                     [yay](https://github.com/Jguer/yay)                      |
-|     Shell      |                        [Fish](https://fishshell.com/)                        |
-| Window Manager |                [BSPWM](https://github.com/baskerville/bspwm)                 |
-|      Bar       |                [Polybar](https://github.com/polybar/polybar)                 |
-|      Menu      |                  [Rofi](https://github.com/davatorium/rofi)                  |
-|    Terminal    |                 [Kitty](https://github.com/kovidgoyal/kitty)                 |
-|  File Manager  |         [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
-|    Browser     |       [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
-|  Text Editor   | [VS Code / micro](https://aur.archlinux.org/packages/visual-studio-code-bin) |
-|     Theme      |              [Mojave GTK](https://www.gnome-look.org/p/1275087)              |
+|       OS       |               [Arch Linux](https://archlinux.org/)               |
+| :------------: | :--------------------------------------------------------------: |
+|   AUR Helper   |               [yay](https://github.com/Jguer/yay)                |
+|     Shell      |                  [Fish](https://fishshell.com/)                  |
+| Window Manager |          [BSPWM](https://github.com/baskerville/bspwm)           |
+|      Bar       |          [Polybar](https://github.com/polybar/polybar)           |
+|      Menu      |            [Rofi](https://github.com/davatorium/rofi)            |
+|    Terminal    |           [Kitty](https://github.com/kovidgoyal/kitty)           |
+|  File Manager  |   [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)   |
+|    Browser     | [Chromium](https://archlinux.org/packages/extra/x86_64/chromium) |
+|  Text Editor   |             [VSCodium / micro](https://vscodium.com)             |
+|     Theme      |        [Mojave GTK](https://www.gnome-look.org/p/1275087)        |
+|     Icons      |           [Kora](https://www.gnome-look.org/p/1256209)           |
 
 ## Installation
 
@@ -28,10 +29,10 @@
 The initial installation of Yay
 
 ```sh
-sudo pacman -Syu --needed micro git base-devel
-git clone https://aur.archlinux.org/yay.git && cd yay
-makepkg -si
-cd && rm -rf yay
+$ sudo pacman -Syu --needed micro git base-devel
+$ git clone https://aur.archlinux.org/yay.git && cd yay
+$ makepkg -si
+$ cd && rm -rf yay
 ```
 
 #### MAKEPKG
@@ -39,7 +40,8 @@ cd && rm -rf yay
 Speed up compiling of AUR packages
 
 ```sh
-sudo micro /etc/makepkg.conf
+$ sudo micro /etc/makepkg.conf
+
 
 MAKEFLAGS="-j4"
 ```
@@ -49,7 +51,8 @@ MAKEFLAGS="-j4"
 Parallel downloading of packages
 
 ```sh
-sudo micro /etc/pacman.conf
+$ sudo micro /etc/pacman.conf
+
 
 ParallelDownloads = 4
 ```
@@ -61,46 +64,72 @@ ParallelDownloads = 4
 > Assuming your **AUR Helper** is [yay](https://github.com/Jguer/yay).
 
 ```sh
-yay -S --needed \
+$ yay -S --needed \
+
+# Xorg
 xorg xorg-xinit \
+
+# System Environment
 bspwm sxhkd polybar rofi rofi-power-menu feh kitty fish dunst \
+
+# File Manager
 thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
-visual-studio-code-bin micro \
-mpv ffmpeg \
-telegram-desktop qbittorrent chromium \
-fastfetch btop lsd fzf fd lazygit ripgrep bat maim xdotool xclip xsel reflector go jq gdm gdm-settings \
+
+# Text Editors
+vscodium-bin micro \
+
+# Media Players
+vlc \
+
+# User Software
+telegram-desktop qbittorrent chromium obs-studio \
+
+# CLI Programs
+go rust yt-dlp ffmpeg fastfetch btop eza fzf fd lazygit ripgrep bat maim xdotool xclip xsel reflector jq \
+
+# File Archiver
 p7zip zip unrar unzip xarchiver \
+
+# Fonts & Icons
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
-mesa xf86-video-intel xf86-input-libinput \
-bluez bluez-utils blueman \
-networkmanager nm-connection-editor network-manager-applet broadcom-wl \
+
+# Drivers
+mesa xf86-video-intel xf86-input-libinput broadcom-wl \
+
+# Network Manager
+networkmanager nm-connection-editor network-manager-applet \
+
+# Utility
 acpid brightnessctl auto-cpufreq \
-remmina freerdp \
-efibootmgr
+
+# RDP Client
+remmina freerdp
 ```
 
 #### Copy configuration files
 
 ```sh
-git clone https://github.com/masajinobe-ef/arch-bspwm-macbook
+$ git clone https://github.com/masajinobe-ef/arch-bspwm-macbook
 
 # ~/.config
-mkdir -p ~/.config && cp -r ~/arch_bspwm_macbook/config/* ~/.config
+$ mkdir -p ~/.config && cp -r ~/arch_bspwm_macbook/config/* ~/.config
+
 # ~/.local/bin
-mkdir -p ~/.local/bin && cp -r ~/arch_bspwm_macbook/bin/* ~/.local/bin
+$ mkdir -p ~/.local/bin && cp -r ~/arch_bspwm_macbook/bin/* ~/.local/bin
 
 # Make executable
-sudo chmod +x ~/.config/bspwm/bspwmrc
-sudo chmod +x ~/.config/polybar/polybar.sh
+$ sudo chmod +x ~/.config/bspwm/bspwmrc
+$ sudo chmod +x ~/.config/polybar/polybar.sh
 
 # Misc
-cp -r ~/arch-bspwm-macbook/misc/. ~
+$ cp -r ~/arch-bspwm-macbook/misc/. ~
 ```
 
 #### Internet (only for macbook)
 
 ```sh
-sudo micro /etc/modprobe.d/blacklist.conf
+$ sudo micro /etc/modprobe.d/blacklist.conf
+
 
 blacklist ssb
 blacklist mmc_core
@@ -111,18 +140,17 @@ blacklist cordic
 blacklist mac80211
 blacklist bcma
 
-sudo mkinitcpio -P
-sudo modprobe wl
+
+$ sudo mkinitcpio -P
+$ sudo modprobe wl
 ```
 
 #### Daemons
 
 ```sh
-sudo systemctl enable acpid --now
-sudo systemctl enable bluetooth --now
-sudo systemctl enable NetworkManager --now
-sudo systemctl enable gdm --now
-sudo systemctl enable auto-cpufreq  --now
+$ sudo systemctl enable acpid --now
+$ sudo systemctl enable NetworkManager --now
+$ sudo systemctl enable auto-cpufreq  --now
 ```
 
 ---
@@ -132,23 +160,26 @@ sudo systemctl enable auto-cpufreq  --now
 Adding language
 
 ```sh
-sudo micro /etc/locale.gen
+$ sudo micro /etc/locale.gen
+
 
 ru_RU.UTF-8 UTF-8
 
-sudo locale-gen
+
+$ sudo locale-gen
 ```
 
 Configure keyboard layout in Xorg
 
 ```sh
-sudo localectl --no-convert set-x11-keymap us,ru pc105+inet qwerty grp:alt_shift_toggle
+$ sudo localectl --no-convert set-x11-keymap us,ru pc105+inet qwerty grp:alt_shift_toggle
 ```
 
 Config touchpad
 
 ```sh
-sudo micro /etc/X11/xorg.conf.d/30-touchpad.conf
+$ sudo micro /etc/X11/xorg.conf.d/30-touchpad.conf
+
 
 Section "InputClass"
     Identifier "touchpad"
@@ -166,7 +197,8 @@ EndSection
 Config mouse
 
 ```sh
-sudo micro /etc/X11/xorg.conf.d/30-pointer.conf
+$ sudo micro /etc/X11/xorg.conf.d/30-pointer.conf
+
 
 Section "InputClass"
     Identifier "pointer"
@@ -181,17 +213,20 @@ EndSection
 Config keyboard (only for macbook)
 
 ```sh
-sudo micro /etc/modprobe.d/hid_apple.conf
+$ sudo micro /etc/modprobe.d/hid_apple.conf
+
 
 options hid_apple fnmode=2 iso_layout=1
 
-sudo mkinitcpio -P
+
+$ sudo mkinitcpio -P
 ```
 
 Config vconsole
 
 ```sh
-sudo micro /etc/vconsole.conf
+$ sudo micro /etc/vconsole.conf
+
 
 XKBLAYOUT=us,ru
 XKBMODEL=pc105+inet
@@ -205,19 +240,21 @@ USECOLOR=yes
 Config GRUB
 
 ```sh
-sudo micro /etc/default/grub
+$ sudo micro /etc/default/grub
+
 
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash intel_pstate=disable"
 
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 Config auto-cpufreq
 
 ```sh
-sensors-detect
+$ sensors-detect
+$ sudo micro /etc/auto-cpufreq.conf
 
-sudo micro /etc/auto-cpufreq.conf
 
 [charger]
 governor = performance
@@ -241,9 +278,9 @@ turbo = never
 
 # battery charging threshold
 # reference: https://github.com/AdnanHodzic/auto-cpufreq/#battery->
-#enable_thresholds = true
-#start_threshold = 20
-#stop_threshold = 80
+# enable_thresholds = true
+# start_threshold = 20
+# stop_threshold = 80
 ```
 
 ---
@@ -253,7 +290,7 @@ turbo = never
 Fisher (Fish)
 
 ```sh
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+$ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
 Fish Plugins List:

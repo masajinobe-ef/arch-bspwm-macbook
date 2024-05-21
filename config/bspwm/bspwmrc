@@ -1,46 +1,44 @@
 #!/bin/sh
 
-##---------- Autostart Apps ----------##
+##---------- Start Environment ----------##
 
-# Run Keybindings Daemon
+# Keybindings Daemon
 pgrep -x sxhkd >/dev/null || sxhkd &
 
-# Run Polybar
+# Bar Daemon
 sh $HOME/.config/polybar/polybar.sh
 
-# Run Dunst
+# Notification Daemon
 dunst --config $HOME/.config/dunst/dunstrc &
 
-# Run polkit daemon if doesn't started
+# PolKit start if doesn't started
 [ -n "$(pidof xfce-polkit)" ] || /usr/lib/xfce-polkit/xfce-polkit &
 
-# Start Wallpaper
+# Wallpaper Daemon
 feh --bg-fill --no-fehbg --randomize $HOME/Wallpapers/* &
 
-# Autorun
+# Autorun Programs
 sh $HOME/.local/bin/autorun 
 
-##---------- X Settings ----------##
+##---------- Xorg Settings ----------##
 
 # Fix Cursor
 xsetroot -cursor_name left_ptr &
 
 # Set Resolution
-xrandr --output eDP1 --mode 1366x768 --scale 1.0x1.0 --dpi 100
+# xrandr --output eDP1 --mode 1366x768 --scale 1.0x1.0 --dpi 100
 
 # Set Keyboard Repeat Delay and Rate
-xset r rate 200 50
+xset r rate 200 50 &
 
-##---------- Window Rules ----------##
+##---------- BSPWM Window Rules ----------##
 
 bspc monitor -d 1 2 3 4 5 6
 
-# bspc rule -a telegram-desktop desktop=^5 follow=on focus=on
-
-##---------- General Configuration ----------##
+##---------- BSPWM General Configuration ----------##
 
 bspc config border_width 5
-bspc config window_gap 10
+bspc config window_gap 5
 bspc config split_ratio 0.5
 
 bspc config normal_border_color "#000000"
