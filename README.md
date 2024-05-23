@@ -67,7 +67,7 @@ ParallelDownloads = 4
 $ yay -S --needed \
 
 # Xorg
-xorg xorg-xinit \
+xorg-server xorg-xinit xorg-xrandr \
 
 # System Environment
 bspwm sxhkd polybar rofi rofi-power-menu feh kitty fish dunst \
