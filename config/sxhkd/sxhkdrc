@@ -6,7 +6,7 @@ super + Return
 
 # Open application menu
 super + r
-	rofi -show combi -combi-modes "window,drun,run,ssh"
+	rofi -show combi -combi-modes "window,drun,ssh"
 
 # Power menu
 super + p
