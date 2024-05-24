@@ -222,6 +222,19 @@ options hid_apple fnmode=2 iso_layout=1
 $ sudo mkinitcpio -P
 ```
 
+Config mkinitcpio (only for macbook)
+
+```sh
+$ sudo micro /etc/mkinitcpio.conf
+
+
+# add vfat to other modules for fix "Failed to mount /boot ... unknown filesystem vfat"
+MODULES=(vfat)
+
+
+$ sudo mkinitcpio -P
+```
+
 Config vconsole
 
 ```sh
