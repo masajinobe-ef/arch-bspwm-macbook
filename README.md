@@ -252,7 +252,7 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 Config auto-cpufreq
 
 ```sh
-$ sensors-detect
+$ sudo sensors-detect
 $ sudo micro /etc/auto-cpufreq.conf
 
 
