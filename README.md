@@ -81,7 +81,7 @@ thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
 visual-studio-code-bin micro \
 
 # Media Players
-vlc \
+mpv \
 
 # User Software
 telegram-desktop qbittorrent chromium obs-studio \
@@ -97,6 +97,7 @@ ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-
 
 # Drivers
 mesa lib32-mesa mesa-utils xf86-video-intel xf86-input-libinput broadcom-wl \
+libva libva-intel-driver libva-utils libvdpau libvdpau-va-gl \
 
 # Network Manager
 networkmanager nm-connection-editor network-manager-applet \
