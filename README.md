@@ -262,7 +262,7 @@ Config GRUB
 $ sudo micro /etc/default/grub
 
 
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash intel_pstate=disable nowatchdog"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 mitigations=off splash intel_pstate=disable nowatchdog"
 
 
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
