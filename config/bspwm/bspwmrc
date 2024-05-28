@@ -8,6 +8,9 @@ pgrep -x sxhkd >/dev/null || sxhkd &
 # Bar Daemon
 sh $HOME/.config/polybar/polybar.sh
 
+# Picom
+picom --config ~/.config/picom/picom.conf &
+
 # Notification Daemon
 dunst --config $HOME/.config/dunst/dunstrc &
 
@@ -26,7 +29,7 @@ sh $HOME/.local/bin/autorun
 xsetroot -cursor_name left_ptr &
 
 # Set Resolution
-# xrandr --output eDP1 --mode 1366x768 --scale 1.0x1.0 --dpi 96
+# xrandr --output eDP1 --mode 1366x768 --scale 1.0x1.0 --dpi 100
 
 # Set Keyboard Repeat Delay and Rate
 xset r rate 200 50 &
