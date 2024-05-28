@@ -26,7 +26,7 @@ sh $HOME/.local/bin/autorun
 xsetroot -cursor_name left_ptr &
 
 # Set Resolution
-# xrandr --output eDP1 --mode 1366x768 --scale 1.0x1.0 --dpi 100
+# xrandr --output eDP1 --mode 1366x768 --scale 1.0x1.0 --dpi 96
 
 # Set Keyboard Repeat Delay and Rate
 xset r rate 200 50 &
