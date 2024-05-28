@@ -56,6 +56,7 @@ $ sudo micro /etc/pacman.conf
 
 
 ParallelDownloads = 5
+Color
 ```
 
 ---
@@ -86,7 +87,7 @@ vlc \
 telegram-desktop qbittorrent chromium obs-studio \
 
 # CLI Programs
-go rust yt-dlp ffmpeg fastfetch btop eza fzf fd lazygit ripgrep bat maim xdotool xclip xsel reflector jq \
+go rust yt-dlp ffmpeg fastfetch btop eza fzf fd lazygit ripgrep bat bat-extras maim xdotool xclip xsel reflector jq man-db man-pages-ru \
 
 # File Archiver
 p7zip zip unrar unzip xarchiver \
