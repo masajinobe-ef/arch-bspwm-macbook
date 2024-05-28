@@ -14,6 +14,7 @@
 |     Shell      |                  [Fish](https://fishshell.com/)                  |
 | Window Manager |          [BSPWM](https://github.com/baskerville/bspwm)           |
 |      Bar       |          [Polybar](https://github.com/polybar/polybar)           |
+| Compositor |          [Picom](https://github.com/yshui/picom)           |
 |      Menu      |            [Rofi](https://github.com/davatorium/rofi)            |
 |    Terminal    |           [Kitty](https://github.com/kovidgoyal/kitty)           |
 |  File Manager  |   [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)   |
@@ -70,7 +71,7 @@ $ yay -S --needed \
 xorg-server xorg-xinit xorg-xrandr xorg-xsetroot \
 
 # System Environment
-bspwm sxhkd polybar rofi rofi-power-menu feh kitty fish dunst \
+bspwm sxhkd polybar rofi rofi-power-menu feh kitty fish dunst picom \
 
 # File Manager
 thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
