@@ -54,7 +54,7 @@ Parallel downloading of packages
 $ sudo micro /etc/pacman.conf
 
 
-ParallelDownloads = 4
+ParallelDownloads = 5
 ```
 
 ---
