@@ -133,7 +133,7 @@ $ cp -r ~/arch-bspwm-macbook/misc/. ~
 $ sudo micro /etc/modprobe.d/blacklist.conf
 
 
-blacklist ssb
+blacklist ssb 
 blacklist mmc_core
 blacklist b43
 blacklist brcmsmac
@@ -141,6 +141,9 @@ blacklist brcmutil
 blacklist cordic
 blacklist mac80211
 blacklist bcma
+
+blacklist iTCO_wdt
+blacklist iTCO_vendor_support
 
 
 $ sudo mkinitcpio -P
@@ -259,7 +262,7 @@ Config GRUB
 $ sudo micro /etc/default/grub
 
 
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash intel_pstate=disable"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash intel_pstate=disable nowatchdog"
 
 
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
