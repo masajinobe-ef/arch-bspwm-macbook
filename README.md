@@ -19,7 +19,7 @@
 |    Terminal    |           [Kitty](https://github.com/kovidgoyal/kitty)           |
 |  File Manager  |   [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)   |
 |    Browser     | [Chromium](https://archlinux.org/packages/extra/x86_64/chromium) |
-|  Text Editor   |             [VSCodium / micro](https://vscodium.com)             |
+|  Text Editor   |             [VSCode / micro](https://aur.archlinux.org/packages/visual-studio-code-bin)             |
 |     Theme      |        [Mojave GTK](https://www.gnome-look.org/p/1275087)        |
 |     Icons      |           [Kora](https://www.gnome-look.org/p/1256209)           |
 
@@ -77,7 +77,7 @@ bspwm sxhkd polybar rofi rofi-power-menu feh kitty fish dunst picom \
 thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
 
 # Text Editors
-vscodium-bin micro \
+visual-studio-code-bin micro \
 
 # Media Players
 vlc \
