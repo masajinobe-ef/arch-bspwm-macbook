@@ -96,7 +96,7 @@ p7zip zip unrar unzip xarchiver \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
 
 # Drivers
-mesa lib32-mesa xf86-video-intel xf86-input-libinput broadcom-wl \
+mesa lib32-mesa mesa-utils xf86-video-intel xf86-input-libinput broadcom-wl \
 
 # Network Manager
 networkmanager nm-connection-editor network-manager-applet \
