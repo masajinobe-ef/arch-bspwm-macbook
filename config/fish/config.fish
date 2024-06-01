@@ -15,3 +15,6 @@
 set -g fish_greeting
 set -g fish_autosuggestion_enabled 1
 export MICRO_TRUECOLOR=1
+
+# Created by `pipx` on 2024-05-28 13:02:51
+set PATH $PATH /home/masa/.local/bin

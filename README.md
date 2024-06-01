@@ -87,7 +87,9 @@ mpv \
 telegram-desktop qbittorrent chromium obs-studio \
 
 # CLI Programs
-go rust yt-dlp ffmpeg fastfetch btop eza fzf fd lazygit ripgrep bat bat-extras maim xdotool xclip xsel reflector jq man-db man-pages-ru \
+go rust yt-dlp ffmpeg fastfetch btop eza fzf fd \
+lazygit ripgrep bat bat-extras maim xdotool xclip \ 
+xsel reflector jq man-db \
 
 # File Archiver
 p7zip zip unrar unzip xarchiver \
@@ -194,7 +196,7 @@ Section "InputClass"
     MatchIsTouchpad "on"
     Option "NaturalScrolling" "true"
     Option "Tapping" "on"
-    Option "TappingButtonMap" "lmr"
+    Option "TappingButtonMap" "lrm"
     Option "ClickMethod" "clickfinger"
     Option "AccelProfile" "flat"
     Option "TransformationMatrix" "1 0 0 0 1 0 0 0 1"
@@ -263,7 +265,7 @@ Config GRUB
 $ sudo micro /etc/default/grub
 
 
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 mitigations=off splash intel_pstate=disable nowatchdog"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 mitigations=off splash intel_pstate=disable nowatchdog"
 
 
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
