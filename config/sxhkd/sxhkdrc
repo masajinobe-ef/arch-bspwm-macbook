@@ -8,6 +8,10 @@ super + Return
 super + r
 	rofi -show combi -combi-modes "window,drun,ssh"
 
+# Wifi menu
+super + u 
+	sh $HOME/.local/bin/rofi-wifi-menu
+
 # Power menu
 super + p
 	rofi -show power-menu -modi power-menu:rofi-power-menu

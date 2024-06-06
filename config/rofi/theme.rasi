@@ -1,12 +1,12 @@
 * {
-    bg0:    #2E3440F2;
-    bg1:    #3B4252;
-    bg2:    #4C566A80;
-    bg3:    #88C0D0F2;
-    fg0:    #D8DEE9;
-    fg1:    #ECEFF4;
-    fg2:    #D8DEE9;
-    fg3:    #4C566A;
+    bg0:    #ffffff;
+    bg1:    #ffffff;
+    bg2:    #000000;
+    bg3:    #000000;
+    fg0:    #000000;
+    fg1:    #000000;
+    fg2:    #000000;
+    fg3:    #000000;
 
     background-color:   transparent;
     text-color:         @fg0;
@@ -18,7 +18,7 @@
 
 window {
     location:       center;
-    width:          480;
+    width:          400;
     
     background-color:   @bg0;
 }
@@ -32,7 +32,7 @@ inputbar {
     border-color:       @bg3;
 
     border:         2px;
-    border-radius:  16px;
+    border-radius:  15px;
 
     padding:    8px 16px;
     spacing:    8px;
@@ -44,13 +44,13 @@ prompt {
 }
 
 entry {
-    placeholder:        "Search";
+    placeholder:        "";
     placeholder-color:  @fg3;
 }
 
 message {
     margin:             12px 0 0;
-    border-radius:      16px;
+    border-radius:      15px;
     border-color:       @bg2;
     background-color:   @bg2;
 }
@@ -72,7 +72,7 @@ listview {
 element {
     padding:        8px 16px;
     spacing:        8px;
-    border-radius:  16px;
+    border-radius:  15px;
 }
 
 element normal active {

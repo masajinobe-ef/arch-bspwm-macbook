@@ -20,8 +20,8 @@
 |  File Manager  |   [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)   |
 |    Browser     | [Chromium](https://archlinux.org/packages/extra/x86_64/chromium) |
 |  Text Editor   |             [VSCode / micro](https://aur.archlinux.org/packages/visual-studio-code-bin)             |
-|     Theme      |        [Mojave GTK](https://www.gnome-look.org/p/1275087)        |
-|     Icons      |           [Kora](https://www.gnome-look.org/p/1256209)           |
+|     Theme      |        [WhiteSur Theme](https://www.gnome-look.org/p/1403328)        |
+|     Icons      |           [WhiteSur Icon](https://www.pling.com/p/1405756)           |
 
 ## Installation
 
@@ -102,7 +102,7 @@ mesa lib32-mesa mesa-utils xf86-video-intel xf86-input-libinput broadcom-wl \
 libva libva-intel-driver libva-utils libvdpau libvdpau-va-gl \
 
 # Network Manager
-networkmanager nm-connection-editor network-manager-applet \
+networkmanager nm-connection-editor \
 
 # Utility
 acpid brightnessctl auto-cpufreq \

@@ -1,5 +1,5 @@
 #!/bin/bash
 
 # Some Apps...
-nm-applet &
+
 # telegram-desktop &
