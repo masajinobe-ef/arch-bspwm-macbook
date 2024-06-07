@@ -1,10 +1,10 @@
-# BSPWM ARCH
+# Arch Linux BSPWM
 
 <p align="center">
   <img width="100%" src="pic.png" alt="readme"/>
 </p>
 
-**BSPWM** Configuration files for **Macbook Air Late 2011 A1370**
+**Arch Linux BSPWM** Configuration files for **Macbook Air Late 2011 A1370**
 
 ## Infomation
 
@@ -114,20 +114,20 @@ remmina freerdp
 #### Copy configuration files
 
 ```sh
-$ git clone https://github.com/masajinobe-ef/arch-bspwm-macbook
+$ git clone https://github.com/masajinobe-ef/archlinux-bspwm-air
 
 # ~/.config
-$ mkdir -p ~/.config && cp -r ~/arch_bspwm_macbook/config/* ~/.config
+$ mkdir -p ~/.config && cp -r ~/archlinux_bspwm_air/config/* ~/.config
 
 # ~/.local/bin
-$ mkdir -p ~/.local/bin && cp -r ~/arch_bspwm_macbook/bin/* ~/.local/bin
+$ mkdir -p ~/.local/bin && cp -r ~/archlinux_bspwm_air/bin/* ~/.local/bin
 
 # Make executable
 $ sudo chmod +x ~/.config/bspwm/bspwmrc
 $ sudo chmod +x ~/.config/polybar/polybar.sh
 
 # Misc
-$ cp -r ~/arch-bspwm-macbook/misc/. ~
+$ cp -r ~/archlinux_bspwm_air/misc/. ~
 ```
 
 #### Internet (only for macbook)
