@@ -1,0 +1,56 @@
+#!/bin/sh
+
+##---------- Start Environment ----------##
+
+# Keybindings Daemon
+pgrep -x sxhkd >/dev/null || sxhkd &
+
+# Bar Daemon
+sh $HOME/.config/polybar/polybar.sh
+
+# Picom
+picom --config ~/.config/picom/picom.conf &
+
+# Notification Daemon
+dunst --config $HOME/.config/dunst/dunstrc &
+
+# PolKit start if doesn't started
+[ -n "$(pidof xfce-polkit)" ] || /usr/lib/xfce-polkit/xfce-polkit &
+
+# Wallpaper Daemon
+feh --bg-fill --no-fehbg --randomize $HOME/Wallpapers/* &
+
+# Autorun Programs
+sh $HOME/.local/bin/autorun 
+
+##---------- Xorg Settings ----------##
+
+# Fix Cursor
+xsetroot -cursor_name left_ptr &
+
+# Set Resolution
+# xrandr --output eDP1 --mode 1366x768 --scale 1.0x1.0 --dpi 100
+
+# Set Keyboard Repeat Delay and Rate
+xset r rate 200 50
+
+##---------- BSPWM Window Rules ----------##
+
+bspc monitor -d 1 2 3 4 5 6
+
+##---------- BSPWM General Configuration ----------##
+
+bspc config border_width 5
+bspc config window_gap 5
+bspc config split_ratio 0.5
+
+bspc config normal_border_color "#000000"
+bspc config active_border_color "#c17acb"
+bspc config focused_border_color "#c17acb"
+bspc config presel_feedback_color "#c17acb"
+
+bspc config focus_follows_pointer true
+bspc config pointer_modifier true
+bspc config paddingless_monocle true
+bspc config borderless_monocle true
+bspc config gapless_monocle true

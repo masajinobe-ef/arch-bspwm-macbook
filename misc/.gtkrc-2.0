@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/masa/.gtkrc-2.0.mine"
-gtk-theme-name="Mojave-Dark-solid"
-gtk-icon-theme-name="kora"
+gtk-theme-name="WhiteSur-Light"
+gtk-icon-theme-name="WhiteSur-purple-dark"
 gtk-font-name="JetBrainsMono Nerd Font 11"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0
@@ -16,4 +16,3 @@ gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintmedium"
-gtk-modules="gail:atk-bridge"
