@@ -1,27 +1,27 @@
-# BSPWM ARCH
+# Arch Linux BSPWM
 
 <p align="center">
   <img width="100%" src="pic.png" alt="readme"/>
 </p>
 
-**BSPWM** Configuration files for **Macbook Air Late 2011 A1370**
+**Arch Linux BSPWM** Configuration files for **Macbook Air Late 2011 A1370**
 
 ## Infomation
 
-|       OS       |               [Arch Linux](https://archlinux.org/)               |
-| :------------: | :--------------------------------------------------------------: |
-|   AUR Helper   |               [yay](https://github.com/Jguer/yay)                |
-|     Shell      |                  [Fish](https://fishshell.com/)                  |
-| Window Manager |          [BSPWM](https://github.com/baskerville/bspwm)           |
-|      Bar       |          [Polybar](https://github.com/polybar/polybar)           |
-| Compositor |          [Picom](https://github.com/yshui/picom)           |
-|      Menu      |            [Rofi](https://github.com/davatorium/rofi)            |
-|    Terminal    |           [Kitty](https://github.com/kovidgoyal/kitty)           |
-|  File Manager  |   [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)   |
-|    Browser     | [Chromium](https://archlinux.org/packages/extra/x86_64/chromium) |
-|  Text Editor   |             [VSCode / micro](https://aur.archlinux.org/packages/visual-studio-code-bin)             |
-|     Theme      |        [WhiteSur Theme](https://www.gnome-look.org/p/1403328)        |
-|     Icons      |           [WhiteSur Icon](https://www.pling.com/p/1405756)           |
+|       OS       |                    [Arch Linux](https://archlinux.org/)                     |
+| :------------: | :-------------------------------------------------------------------------: |
+|   AUR Helper   |                     [yay](https://github.com/Jguer/yay)                     |
+|     Shell      |                       [Fish](https://fishshell.com/)                        |
+| Window Manager |                [BSPWM](https://github.com/baskerville/bspwm)                |
+|      Bar       |                [Polybar](https://github.com/polybar/polybar)                |
+|   Compositor   |                   [Picom](https://github.com/yshui/picom)                   |
+|      Menu      |                 [Rofi](https://github.com/davatorium/rofi)                  |
+|    Terminal    |                [Kitty](https://github.com/kovidgoyal/kitty)                 |
+|  File Manager  |        [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
+|    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
+|  Text Editor   | [VSCode / micro](https://aur.archlinux.org/packages/visual-studio-code-bin) |
+|     Theme      |           [WhiteSur Theme](https://www.gnome-look.org/p/1403328)            |
+|     Icons      |              [WhiteSur Icon](https://www.pling.com/p/1405756)               |
 
 ## Installation
 
@@ -114,20 +114,20 @@ remmina freerdp
 #### Copy configuration files
 
 ```sh
-$ git clone https://github.com/masajinobe-ef/arch-bspwm-macbook
+$ git clone https://github.com/masajinobe-ef/archlinux-bspwm-air
 
 # ~/.config
-$ mkdir -p ~/.config && cp -r ~/arch_bspwm_macbook/config/* ~/.config
+$ mkdir -p ~/.config && cp -r ~/archlinux_bspwm_air/config/* ~/.config
 
 # ~/.local/bin
-$ mkdir -p ~/.local/bin && cp -r ~/arch_bspwm_macbook/bin/* ~/.local/bin
+$ mkdir -p ~/.local/bin && cp -r ~/archlinux_bspwm_air/bin/* ~/.local/bin
 
 # Make executable
 $ sudo chmod +x ~/.config/bspwm/bspwmrc
 $ sudo chmod +x ~/.config/polybar/polybar.sh
 
 # Misc
-$ cp -r ~/arch-bspwm-macbook/misc/. ~
+$ cp -r ~/archlinux_bspwm_air/misc/. ~
 ```
 
 #### Internet (only for macbook)
@@ -136,7 +136,7 @@ $ cp -r ~/arch-bspwm-macbook/misc/. ~
 $ sudo micro /etc/modprobe.d/blacklist.conf
 
 
-blacklist ssb 
+blacklist ssb
 blacklist mmc_core
 blacklist b43
 blacklist brcmsmac
