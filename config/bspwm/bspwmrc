@@ -25,14 +25,11 @@ sh $HOME/.local/bin/autorun
 
 ##---------- Xorg Settings ----------##
 
-# Fix Cursor
-xsetroot -cursor_name left_ptr &
+# Fix Cursor / Keyboard Repeat Delay and Rate
+xsetroot -cursor_name left_ptr && xset r rate 200 50
 
 # Set Resolution
 # xrandr --output eDP1 --mode 1366x768 --scale 1.0x1.0 --dpi 100
-
-# Set Keyboard Repeat Delay and Rate
-xset r rate 200 50
 
 ##---------- BSPWM Window Rules ----------##
 
