@@ -72,10 +72,10 @@ $ yay -S --needed \
 xorg-server xorg-xinit xorg-xrandr xorg-xsetroot \
 
 # System Environment
-bspwm sxhkd polybar rofi rofi-power-menu feh kitty fish dunst picom \
+bspwm sxhkd polybar greenclip rofi rofi-power-menu feh kitty fish dunst picom \
 
 # File Manager
-thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
+thunar xdg-user-dirs xfce-polkit tumbler ffmpegthumbnailer lxappearance-gtk3 \
 
 # Text Editors
 visual-studio-code-bin micro \
@@ -89,7 +89,7 @@ telegram-desktop qbittorrent chromium obs-studio \
 # CLI Programs
 go rust yt-dlp ffmpeg fastfetch btop eza fzf fd \
 lazygit ripgrep bat bat-extras maim xdotool xclip \ 
-xsel reflector jq man-db \
+xsel reflector jq man-db poppler fd zoxide yazi unarchiver \
 
 # File Archiver
 p7zip zip unrar unzip xarchiver \
