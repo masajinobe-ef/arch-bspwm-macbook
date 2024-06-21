@@ -89,7 +89,7 @@ telegram-desktop qbittorrent chromium obs-studio \
 # CLI Programs
 go rust yt-dlp ffmpeg fastfetch btop eza fzf fd \
 lazygit ripgrep bat bat-extras maim xdotool xclip \ 
-xsel reflector jq man-db poppler fd zoxide yazi unarchiver \
+xsel reflector jq man-db poppler zoxide yazi unarchiver \
 
 # File Archiver
 p7zip zip unrar unzip xarchiver \
